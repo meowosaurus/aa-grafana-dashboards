@@ -1,4 +1,6 @@
 ## Actual Corporation Players
+Calculates how many players, no characters, you have inside a corporation:
+
 ```
 SELECT evechar.corporation_name AS "Corporation Name", evechar.corporation_ticker AS "Corporation Ticker", COUNT(evechar.character_name) AS "Actual Players"
 FROM alliance_auth.authentication_userprofile userprofile

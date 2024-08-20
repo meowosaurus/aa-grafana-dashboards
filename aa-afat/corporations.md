@@ -1,4 +1,5 @@
 ## FATs in relation to their corp size
+Calculates how many FATs each character inside a corp has and how many percentage of people do PvP with at least 4 FATs per player:
 
 ```
 SELECT 
@@ -42,6 +43,7 @@ ORDER BY
 ```
 
 ## Top Monthly Corporations
+Calculates how many FATs each character inside a corp has and adds them together:
 
 ```
 SELECT evechar.corporation_name AS "Corporation Name", evechar.corporation_ticker AS "Corporation Ticker", evechar.alliance_name AS "Alliance Name", evechar.alliance_ticker AS "Alliance Ticker", COUNT(fat.id) AS FATs

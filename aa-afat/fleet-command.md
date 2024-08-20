@@ -1,4 +1,5 @@
 ## Monthly Top Fleet Commanders
+Goes through all created fatlinks, groups them together and displays how many were created by one FC.
 
 ```
 SELECT evechar.character_name AS "Fleet Commander", COUNT(fatlink.id) AS "Created FATs"
