@@ -1,5 +1,3 @@
-# Alliance Auth Another Fleet Activity Tracking
-
 ## Monthly FATs
 All FATs by characters are getting grouped by their account owner (player) and displayed:
 
@@ -10,6 +8,7 @@ JOIN alliance_auth.afat_fatlink fatlink ON fat.fatlink_id = fatlink.id
 JOIN alliance_auth.authentication_characterownership charowner ON fat.character_id = charowner.character_id 
 JOIN alliance_auth.authentication_userprofile userprofile ON charowner.user_id = userprofile.id
 JOIN alliance_auth.eveonline_evecharacter evechar ON userprofile.main_character_id = evechar.id
+WHERE $__timeFilter(fatlink.created)
 GROUP BY evechar.character_name
 ORDER BY FATs DESC
 ```
@@ -24,6 +23,7 @@ JOIN alliance_auth.afat_fatlink fatlink ON fat.fatlink_id = fatlink.id
 JOIN alliance_auth.authentication_characterownership charowner ON fat.character_id = charowner.character_id 
 JOIN alliance_auth.authentication_userprofile userprofile ON charowner.user_id = userprofile.id
 JOIN alliance_auth.eveonline_evecharacter evechar ON userprofile.main_character_id = evechar.id
+WHERE $__timeFilter(fatlink.created)
 GROUP BY evechar.character_name
 HAVING FATs < 4
 ORDER BY FATs DESC
@@ -40,6 +40,7 @@ JOIN alliance_auth.authentication_characterownership charowner ON fat.character_
 JOIN alliance_auth.authentication_userprofile userprofile ON charowner.user_id = userprofile.id
 JOIN alliance_auth.eveonline_evecharacter evechar ON userprofile.main_character_id = evechar.id
 WHERE fat.shiptype IN ('Slasher', 'Rifter', 'Stiletto', 'Sabre', 'Condor', 'Merlin', 'Crow', 'Flycatcher', 'Atron', 'Incursus', 'Maulus Navy Issue', 'Ares', 'Keres', 'Eris', 'Punisher', 'Executioner', 'Malediction', 'Heretic')
+AND $__timeFilter(fatlink.created)
 GROUP BY evechar.character_name
 ORDER BY FATs DESC
 ```
@@ -55,6 +56,7 @@ JOIN alliance_auth.authentication_characterownership charowner ON fat.character_
 JOIN alliance_auth.authentication_userprofile userprofile ON charowner.user_id = userprofile.id
 JOIN alliance_auth.eveonline_evecharacter evechar ON userprofile.main_character_id = evechar.id
 WHERE fat.shiptype IN ('Inquisitor', 'Deacon', 'Augoror', 'Guardian', 'Bantam', 'Kirin', 'Burst', 'Scalpel', 'Scythe', 'Osprey', 'Scimitar', 'Basilisk', 'Navitas', 'Thalia', 'Exequror', 'Oneiros')
+AND $__timeFilter(fatlink.created)
 GROUP BY evechar.character_name
 ORDER BY FATs DESC
 ```
@@ -70,6 +72,7 @@ JOIN alliance_auth.authentication_characterownership charowner ON fat.character_
 JOIN alliance_auth.authentication_userprofile userprofile ON charowner.user_id = userprofile.id
 JOIN alliance_auth.eveonline_evecharacter evechar ON userprofile.main_character_id = evechar.id
 WHERE fat.shiptype IN ('Bifrost', 'Stork', 'Magus', 'Pontifex', 'Claymore', 'Vulture', 'Damnation', 'Eos')
+AND $__timeFilter(fatlink.created)
 GROUP BY evechar.character_name
 ORDER BY FATs DESC
 ```
@@ -85,6 +88,7 @@ JOIN alliance_auth.authentication_characterownership charowner ON fat.character_
 JOIN alliance_auth.authentication_userprofile userprofile ON charowner.user_id = userprofile.id
 JOIN alliance_auth.eveonline_evecharacter evechar ON userprofile.main_character_id = evechar.id
 WHERE fat.shiptype IN ('Vigil', 'Vigil Fleet Issue', 'Hyena', 'Huginn', 'Maulus', 'Griffin', 'Griffin Navy Issue', 'Kitsune', 'Rook', 'Blackbird', 'Celestis', 'Bellicose', 'Crucifier', 'Crucifier Navy Issue', 'Sentinel', 'Curse', 'Arbitrator')
+AND $__timeFilter(fatlink.created)
 GROUP BY evechar.character_name
 ORDER BY FATs DESC
 ```
@@ -100,6 +104,7 @@ JOIN alliance_auth.authentication_characterownership charowner ON fat.character_
 JOIN alliance_auth.authentication_userprofile userprofile ON charowner.user_id = userprofile.id
 JOIN alliance_auth.eveonline_evecharacter evechar ON userprofile.main_character_id = evechar.id
 WHERE fat.shiptype IN ('Onyx', 'Broadsword', 'Phobos', 'Devoter')
+AND $__timeFilter(fatlink.created)
 GROUP BY evechar.character_name
 ORDER BY FATs DESC
 ```
@@ -115,6 +120,7 @@ JOIN alliance_auth.authentication_characterownership charowner ON fat.character_
 JOIN alliance_auth.authentication_userprofile userprofile ON charowner.user_id = userprofile.id
 JOIN alliance_auth.eveonline_evecharacter evechar ON userprofile.main_character_id = evechar.id
 WHERE fat.shiptype IN ('Revelation', 'Revelation Navy Issue', 'Bane', 'Apostile', 'Aeon', 'Archon', 'Naglfar', 'Naglfar Fleet Issue', 'Valravn', 'Lif', 'Nidhoggur', 'Hel', 'Moros', 'Moros Navy Issue', 'Hubris', 'Ninazu', 'Thanatos', 'Nyx', 'Phoenix', 'Phoenix Navy Issue', 'Karura', 'Minokawa', 'Wyvern', 'Chimera')
+AND $__timeFilter(fatlink.created)
 GROUP BY evechar.character_name
 ORDER BY FATs DESC
 ```
@@ -130,6 +136,7 @@ JOIN alliance_auth.authentication_characterownership charowner ON fat.character_
 JOIN alliance_auth.authentication_userprofile userprofile ON charowner.user_id = userprofile.id
 JOIN alliance_auth.eveonline_evecharacter evechar ON userprofile.main_character_id = evechar.id
 WHERE fat.shiptype IN ('Avatar', 'Levithan', 'Ragnarok', 'Erebus')
+AND $__timeFilter(fatlink.created)
 GROUP BY evechar.character_name
 ORDER BY FATs DESC
 ```
